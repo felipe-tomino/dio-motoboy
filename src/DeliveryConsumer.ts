@@ -37,7 +37,7 @@ export default class OrderConsumer extends KafkaConsumer {
 
   async deliverOrder(order: any): Promise<void> {
     const { id, address } = order;
-    const timeToDeliver = Math.floor(Math.random() * 20 + 10);
+    const timeToDeliver = Math.floor(Math.random() * 20 + 15);
     console.log(`Delivering order '${id}' to address ${address}, it will take ${timeToDeliver}s. Order: ${JSON.stringify(order)}`);
     sleep(timeToDeliver);
     super.commit();
